@@ -8,16 +8,12 @@ class Solution:
             else:
                 hash1[c] = 1
 
-        print(hash1)
-
         hash2 = {}
         for c in t:
             if c in hash2:
                 hash2[c] +=1
             else:
                 hash2[c] = 1
-
-        print(hash2)
 
         return hash1 == hash2
         

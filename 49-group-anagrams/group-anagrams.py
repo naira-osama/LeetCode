@@ -1,5 +1,6 @@
+from collections import defaultdict
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
 
         result_dic  = defaultdict(list)
 
@@ -8,14 +9,10 @@ class Solution:
 
             for c in str:
                 new_key[ord(c) - 97] += 1
-                
+
             key = tuple(new_key)
-            result_dic[key].append(str)
-
-        result = []
-
-        for val in result_dic.values():
-            result.append(val)        
+            result_dic[key].append(str)    
 
 
-        return result
+        return list(result_dic.values())
+

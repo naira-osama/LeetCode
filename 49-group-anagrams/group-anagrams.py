@@ -1,28 +1,21 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
 
-        sorted_list = []
+        result_dic  = defaultdict(list)
+
         for str in strs:
-            l = list(str)
-            slist = sorted(l)
-            new_str = "".join(slist)
-            sorted_list.append(new_str)
+            new_key = [0] * 26
 
-
-
-        h = defaultdict(list)
-        for i in range(len(sorted_list)):
-            h[sorted_list[i]].append(i)
-
+            for c in str:
+                new_key[ord(c) - 97] += 1
+                
+            key = tuple(new_key)
+            result_dic[key].append(str)
 
         result = []
 
-        for val in h.values():
-            inner_list = []
-            for i in val:
-                inner_list.append(strs[i])
-            result.append(inner_list)
-        
+        for val in result_dic.values():
+            result.append(val)        
 
 
         return result
